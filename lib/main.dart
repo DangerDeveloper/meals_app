@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mealsapp/categories_meals_screen.dart';
-import 'package:mealsapp/categories_screen.dart';
-import 'package:mealsapp/constant/Navigation_const_name.dart';
+import 'package:mealsapp/screen/categories_meals_screen.dart';
+import 'package:mealsapp/constant/Navigation_name_details.dart';
+import 'package:mealsapp/screen/categories_screen.dart';
+import 'package:mealsapp/screen/favorites_screen.dart';
+import 'package:mealsapp/screen/meal_detail_screen.dart';
+import 'package:mealsapp/screen/tabs_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,10 +33,23 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: CategoriesScreen(),
+//      home: CategoriesScreen(),
+      initialRoute: NavigationNameDetails.HOME_ROUTE,
       routes: {
-        C.CATEGORIES_MEALS_SCREEN: (ctx) => CategoriesMealsScreen(),
+        NavigationNameDetails.HOME_ROUTE: (ctx) => TabsScreen(),
+        NavigationNameDetails.CATEGORIES_MEALS_SCREEN: (ctx) => CategoriesMealsScreen(),
+        NavigationNameDetails.MEAL_DETAIL_SCREEN: (ctx) => MealDetailScreen(),
       },
+//      onGenerateRoute: (setting){
+//        print(setting.arguments);
+//        if(setting.name == '/...'){
+//          return ...;
+//        }else if(setting.name == '...'){
+//          return ...;
+//        }
+//        return MaterialPageRoute(builder: (ctx) => ....);
+//      },
+//    onUnknownRoute: ,
     );
   }
 }
